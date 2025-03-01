@@ -1,11 +1,5 @@
 "use client";
-import {
-  Box,
-  Container,
-  Grid,
-  Typography,
-  IconButton,
-} from "@mui/material";
+import { Box, Container, Grid, Typography, IconButton } from "@mui/material";
 import { Facebook, Instagram, Twitter, YouTube } from "@mui/icons-material";
 
 export default function Footer() {

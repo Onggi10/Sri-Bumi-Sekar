@@ -1,6 +1,5 @@
 "use client";
 import Navbar from "./components/Navbar";
-import Footer from "./components/footer";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import theme from "../theme/theme";
@@ -13,14 +12,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id">
-      <body className="main-container">
-        <Navbar />
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          {children}
-        </ThemeProvider>
-        <Footer />
-      </body>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <body>
+          <div className="main-container">
+            <Navbar />
+            {children}
+          </div>
+        </body>
+      </ThemeProvider>
     </html>
   );
 }

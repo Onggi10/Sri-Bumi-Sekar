@@ -33,7 +33,13 @@ export default function FeaturedProducts() {
     <Box
       component="section"
       id="products"
-      sx={{ my: 4, minHeight: "100vh", scrollMarginTop: "80px", px: 6, py: 10 }}
+      sx={{
+        my: 4,
+        minHeight: "100vh",
+        scrollMarginTop: "80px",
+        px: { xs: 6, md: 10 },
+        py: 10,
+      }}
     >
       <Typography
         variant="h2"
@@ -89,10 +95,9 @@ export default function FeaturedProducts() {
                     justifyContent: "center",
                     alignItems: "center",
                     width: "100%",
-                    height: "400px",
+                    height: { xs: "200px", md: "300px" }, // Ukuran gambar lebih kecil di mobile
                     borderRadius: "8px",
                     overflow: "hidden",
-                    padding: 5,
                   }}
                 >
                   <Image
@@ -101,9 +106,12 @@ export default function FeaturedProducts() {
                     width={200}
                     height={200}
                     style={{
-                      objectFit: "cover",
+                      objectFit: "contain",
                       width: "100%",
                       height: "100%",
+                      maxWidth: "100%",
+                      maxHeight: "100%",
+                      aspectRatio: "1 / 1", // Menjaga rasio aspek gambar
                     }}
                   />
                 </Box>

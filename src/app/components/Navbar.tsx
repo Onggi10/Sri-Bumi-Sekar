@@ -11,6 +11,7 @@ import {
   ListItem,
   ListItemText,
   Box,
+  Divider,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
@@ -37,18 +38,14 @@ export default function Navbar() {
       <AppBar
         position="fixed"
         sx={{
-          background: "linear-gradient(to top,  #172B58, #3058A6)", // Sesuai dengan footer
-          borderBottom: "4px solid #D61F26", // Garis bawah agar tampak modern
+          background: "linear-gradient(to top,  #172B58, #3058A6)", // Warna biru sesuai footer
+          borderBottom: "4px solid #D61F26",
           zIndex: 1100,
         }}
       >
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           {/* Logo */}
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}
-          >
+          <Box sx={{ display: "flex", alignItems: "center", flexGrow: 1 }}>
             <Image
               src="/images/Logo.jpeg"
               alt="Logo"
@@ -56,10 +53,16 @@ export default function Navbar() {
               height={40}
               style={{ marginRight: "8px" }}
             />
-            <Link href="/" style={{ textDecoration: "none", color: "white" }}>
-              Sri Bumi Sekar
-            </Link>
-          </Typography>
+            <Typography variant="h6">
+              <Link
+                href="/"
+                style={{ textDecoration: "none", color: "#FFFFFF" }}
+              >
+                Sri Bumi Sekar
+              </Link>
+            </Typography>
+          </Box>
+
           {/* Menu untuk Desktop */}
           <Box sx={{ display: { xs: "none", md: "block" } }}>
             {navItems.map((item) => (
@@ -70,25 +73,39 @@ export default function Navbar() {
                 href={item.href}
                 sx={{
                   mx: 1,
-                  transition: "color 0.3s",
-                  "&:hover": { color: "#ff9800" }, // Hover efek warna oranye
+                  fontSize: "16px",
+                  fontWeight: "bold",
+                  color: "#FFFFFF",
+                  transition: "color 0.3s, background 0.3s",
+                  "&:hover": {
+                    color: "#D61F26",
+                    background: "#F1C40F",
+                    borderRadius: "4px",
+                  },
                 }}
               >
                 {item.text}
               </Button>
             ))}
           </Box>
+
           {/* Icon Menu untuk Mobile */}
           <IconButton
-            color="inherit"
             edge="end"
-            sx={{ display: { md: "none" } }}
             onClick={handleDrawerToggle}
+            sx={{
+              display: { md: "none" },
+              color: "white", // 🔥 Pastikan warna ikon putih
+            }}
           >
-            <MenuIcon />
+            <MenuIcon sx={{ fontSize: 30, color: "white" }} />{" "}
+            {/* 🔥 Warna ikon dipaksa putih */}
           </IconButton>
         </Toolbar>
       </AppBar>
+
+      {/* Spacer agar konten tidak tertutup Navbar */}
+      <Box sx={{ height: "64px" }} />
 
       {/* Sidebar Menu untuk Mobile */}
       <Drawer
@@ -97,36 +114,61 @@ export default function Navbar() {
         onClose={handleDrawerToggle}
         sx={{
           "& .MuiDrawer-paper": {
-            width: 240,
-            background: "#333",
-            color: "white",
+            width: 280, // Lebar lebih besar agar lebih nyaman
+            background: "#172B58", // Warna biru tua agar sesuai tema
+            color: "#FFFFFF",
           },
         }}
       >
+        <Box sx={{ textAlign: "center", py: 2 }}>
+          <Image
+            src="/images/Logo.jpeg"
+            alt="Logo"
+            width={50}
+            height={50}
+            style={{ marginBottom: "8px" }}
+          />
+          <Typography
+            variant="h6"
+            sx={{ fontWeight: "bold", color: "#FFFFFF" }}
+          >
+            Sri Bumi Sekar
+          </Typography>
+        </Box>
+
+        <Divider sx={{ backgroundColor: "rgba(255, 255, 255, 0.3)" }} />
+
         <List>
           {navItems.map((item) => (
-            <ListItem
-              key={item.text}
-              onClick={handleDrawerToggle}
-              disablePadding
-            >
-              <ListItemText>
-                <Typography
-                  variant="body1"
-                  sx={{
-                    px: 2,
-                    py: 1,
-                    display: "block",
-                    cursor: "pointer",
-                    transition: "color 0.3s",
-                    "&:hover": { color: "#ff9800" }, // Efek hover yang sama dengan navbar desktop
-                  }}
-                  component="a"
-                  href={item.href}
-                >
-                  {item.text}
-                </Typography>
-              </ListItemText>
+            <ListItem key={item.text} disablePadding>
+              <ListItemText
+                primary={
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      px: 3,
+                      py: 1.5,
+                      display: "block",
+                      textAlign: "center",
+                      fontSize: "18px",
+                      fontWeight: "bold",
+                      textDecoration: "none",
+                      color: "#FFFFFF", // 🔥 Warna teks putih agar jelas
+                      transition: "background 0.3s, color 0.3s",
+                      "&:hover": {
+                        background: "#D61F26", // 🔥 Background merah saat hover
+                        color: "#FFFFFF",
+                        borderRadius: "4px",
+                      },
+                    }}
+                    component="a"
+                    href={item.href}
+                    onClick={handleDrawerToggle}
+                  >
+                    {item.text}
+                  </Typography>
+                }
+              />
             </ListItem>
           ))}
         </List>

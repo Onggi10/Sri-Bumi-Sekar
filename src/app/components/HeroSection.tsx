@@ -10,15 +10,15 @@ export default function HeroSection() {
         backgroundImage: "url('/images/Pengiriman 9.jpeg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
-        height: { xs: 500, md: 700 },
+        height: "100vh",
+        minHeight: { xs: "400px", sm: "500px" },
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        mb: 4,
-        scrollMarginTop: "80px",
         position: "relative",
-        borderRadius: 0,
-        overflow: "hidden",
+        margin: 0,
+        paddingTop: { xs: "56px", md: "64px" }, // 🚀 Tambahkan padding agar tidak tertutup navbar
+        scrollMarginTop: "0px",
         "&::before": {
           content: '""',
           position: "absolute",
@@ -26,33 +26,39 @@ export default function HeroSection() {
           left: 0,
           width: "100%",
           height: "100%",
-          bgcolor: "rgba(0, 0, 0, 0.4)",
+          bgcolor: "rgba(0, 0, 0, 0.4)", // Overlay lebih gelap
         },
       }}
     >
       <Box
         sx={{
           textAlign: "center",
-          px: 3,
+          px: { xs: 2, sm: 3 },
           position: "relative",
           zIndex: 1,
-          maxWidth: 800,
+          maxWidth: { xs: "90%", sm: 800 },
         }}
       >
         <Typography
           variant="h2"
           sx={{
-            fontSize: { xs: "h3", md: "h1" },
+            fontSize: { xs: "1.75rem", sm: "2rem", md: "3rem" },
             fontWeight: "bold",
             color: "white",
             textTransform: "uppercase",
           }}
         >
-          Quality Materials Trusted Results.
+          QUALITY MATERIALS TRUSTED RESULTS.
         </Typography>
         <Typography
           variant="h6"
-          sx={{ mt: 2, color: "#ddd", fontSize: { xs: "1rem", md: "1.25rem" } }}
+          sx={{
+            mt: 2,
+            color: "#ddd",
+            fontSize: { xs: "0.9rem", sm: "1rem", md: "1.25rem" },
+            maxWidth: "90%",
+            mx: "auto",
+          }}
         >
           Dapatkan material berkualitas tinggi dengan harga terbaik untuk proyek
           konstruksi yang kokoh dan tahan lama!
@@ -65,10 +71,13 @@ export default function HeroSection() {
             backgroundColor: "#E74C3C",
             color: "white",
             fontWeight: "bold",
+            px: { xs: 3, sm: 4 },
+            py: { xs: 1, sm: 1.5 },
+            fontSize: { xs: "0.875rem", sm: "1rem" },
             "&:hover": { backgroundColor: "#C0392B" },
           }}
         >
-          Lihat Products
+          Lihat Produk
         </Button>
       </Box>
     </Box>
