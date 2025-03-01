@@ -38,9 +38,12 @@ export default function Navbar() {
       <AppBar
         position="fixed"
         sx={{
-          background: "linear-gradient(to top,  #172B58, #3058A6)", // Warna biru sesuai footer
+          background: "linear-gradient(to top,  #172B58, #3058A6)",
           borderBottom: "4px solid #D61F26",
           zIndex: 1100,
+          width: "100%",
+          maxWidth: "100vw",
+          overflowX: "hidden",
         }}
       >
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>

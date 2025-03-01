@@ -18,7 +18,12 @@ const aboutData = [
 
 export default function AboutSection() {
   return (
-    <Box component="section" id="about" sx={{ py: 10, px: 10 }}>
+    <Box
+      component="section"
+      id="about"
+      justifyContent="center"
+      sx={{ py: 10, px: { xs: 4, md: 10 }, overflow: "hidden" }}
+    >
       <Typography
         variant="h2"
         sx={{ fontSize: "2rem", mb: 10, textAlign: "center" }}
@@ -33,34 +38,38 @@ export default function AboutSection() {
           spacing={4}
           alignItems="center"
           sx={{
-            flexDirection: index % 2 === 0 ? "row" : "row-reverse",
+            flexDirection: {
+              xs: "column",
+              md: index % 2 === 0 ? "row" : "row-reverse",
+            },
             mb: 8,
+            overflow: "hidden", // 🔥 Hindari scroll
           }}
         >
           {/* Gambar */}
           <Grid item xs={12} md={6}>
-            <Box sx={{ position: "relative", display: "inline-block" }}>
-              <Box
-                sx={{
-                  position: "absolute",
-                  width: "80%",
-                  height: "80%",
-                  backgroundColor: "#E74C3C",
-                  bottom: -10,
-                  left: index % 2 === 0 ? -10 : "auto",
-                  right: index % 2 === 0 ? "auto" : -10,
-                  zIndex: 0,
-                }}
-              />
+            <Box
+              sx={{
+                position: "relative",
+                display: "flex",
+                justifyContent: "center", // 🔥 Pastikan gambar tetap di tengah
+                alignItems: "center",
+                width: "100%",
+                overflow: "hidden", // 🔥 Hindari gambar melebihi ukuran
+              }}
+            >
               <Image
                 src={item.image}
                 alt={item.title}
                 width={500}
                 height={500}
                 style={{
+                  maxWidth: "90%", // 🔥 Pastikan tidak lebih besar dari parent
+                  height: "auto",
+                  borderRadius: "10px",
+                  display: "block",
                   position: "relative",
                   zIndex: 1,
-                  borderRadius: "10px",
                 }}
               />
             </Box>

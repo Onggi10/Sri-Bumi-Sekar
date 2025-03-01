@@ -10,15 +10,17 @@ export default function HeroSection() {
         backgroundImage: "url('/images/Pengiriman 9.jpeg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
-        height: "100vh",
-        minHeight: { xs: "400px", sm: "500px" },
+        height: { xs: "90vh", sm: 500, md: 700 },
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        mb: 4,
+        scrollMarginTop: "80px",
         position: "relative",
-        margin: 0,
-        paddingTop: { xs: "56px", md: "64px" }, // 🚀 Tambahkan padding agar tidak tertutup navbar
-        scrollMarginTop: "0px",
+        borderRadius: 0,
+        overflow: "hidden",
+        width: "100%", // 🔥 Pastikan ini ada
+        maxWidth: "100vw", // 🔥 Tambahkan ini
         "&::before": {
           content: '""',
           position: "absolute",
@@ -26,7 +28,7 @@ export default function HeroSection() {
           left: 0,
           width: "100%",
           height: "100%",
-          bgcolor: "rgba(0, 0, 0, 0.4)", // Overlay lebih gelap
+          bgcolor: "rgba(0, 0, 0, 0.25)", // Overlay lebih terang
         },
       }}
     >
