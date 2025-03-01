@@ -9,27 +9,53 @@ export default function Footer() {
       sx={{
         background: "linear-gradient(to bottom, #172B58, #3058A6)",
         color: "white",
-        py: 4,
+        py: 6,
         mt: 6,
         borderTop: "4px solid #D61F26",
         textAlign: "center",
       }}
     >
       <Container maxWidth="lg">
-        <Grid container spacing={4} justifyContent="center">
+        <Grid
+          container
+          spacing={4}
+          justifyContent="center"
+          textAlign={{ xs: "center", md: "left" }} // 🔥 Pastikan konten di tengah di mobile
+        >
           {/* Kolom 1: Tentang Kami */}
-          <Grid item xs={12} md={4}>
+          <Grid
+            item
+            xs={12}
+            md={4}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: { xs: "center", md: "flex-start" },
+            }}
+          >
             <Typography variant="h6" gutterBottom fontWeight="bold">
-              BangunKuat
+              Sri Bumi Sekar
             </Typography>
-            <Typography variant="body2" sx={{ opacity: 0.8 }}>
+            <Typography
+              variant="body2"
+              sx={{ opacity: 0.8, maxWidth: "300px" }}
+            >
               Kami menyediakan bahan bangunan berkualitas dengan harga terbaik
               dan layanan profesional.
             </Typography>
           </Grid>
 
           {/* Kolom 2: Layanan Kami */}
-          <Grid item xs={12} md={4}>
+          <Grid
+            item
+            xs={12}
+            md={4}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: { xs: "center", md: "flex-start" },
+            }}
+          >
             <Typography variant="h6" gutterBottom fontWeight="bold">
               Layanan Kami
             </Typography>
@@ -43,11 +69,7 @@ export default function Footer() {
                 <Typography
                   key={index}
                   variant="body2"
-                  sx={{
-                    display: "block",
-                    mb: 1,
-                    opacity: 0.8,
-                  }}
+                  sx={{ display: "block", mb: 1, opacity: 0.8 }}
                 >
                   ✅ {service}
                 </Typography>
@@ -56,15 +78,24 @@ export default function Footer() {
           </Grid>
 
           {/* Kolom 3: Kontak */}
-          <Grid item xs={12} md={4}>
+          <Grid
+            item
+            xs={12}
+            md={4}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: { xs: "center", md: "flex-start" },
+            }}
+          >
             <Typography variant="h6" gutterBottom fontWeight="bold">
               Hubungi Kami
             </Typography>
             <Typography variant="body2" sx={{ opacity: 0.8 }}>
-              📧 support@bangunkuat.com
+              📧 sribumisekar@gmail.com
             </Typography>
             <Typography variant="body2" sx={{ opacity: 0.8 }}>
-              📞 +62 812-3456-7890
+              📞 +62 895-3131-0890
             </Typography>
             <Typography variant="body2" sx={{ opacity: 0.8 }}>
               📍 Jl. Raya Bangun No. 123, Jakarta
