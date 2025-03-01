@@ -4,7 +4,6 @@ import {
   Container,
   Grid,
   Typography,
-  Link,
   IconButton,
 } from "@mui/material";
 import { Facebook, Instagram, Twitter, YouTube } from "@mui/icons-material";

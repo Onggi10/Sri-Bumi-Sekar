@@ -1,6 +1,5 @@
 "use client";
 import { Box, Button, Typography } from "@mui/material";
-import { image } from "framer-motion/client";
 
 export default function HeroSection() {
   return (
