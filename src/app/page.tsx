@@ -9,7 +9,7 @@ import Footer from "./components/footer";
 
 export default function Home() {
   return (
-    <Box component="main" sx={{ py: 4, mx: "auto" }}>
+    <Box>
       <HeroSection />
       <AboutSection />
       <FeaturedProducts />
