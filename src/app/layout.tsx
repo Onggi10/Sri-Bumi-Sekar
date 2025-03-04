@@ -4,6 +4,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import theme from "../theme/theme";
 import "./styles/globals.css";
+import Footer from "./components/footer";
 
 export default function RootLayout({
   children,
@@ -13,6 +14,7 @@ export default function RootLayout({
   return (
     <html lang="id">
       <head>
+        <title>Sri Bumi Sekar</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
@@ -24,6 +26,7 @@ export default function RootLayout({
           <div className="main-container">
             <Navbar />
             {children}
+            <Footer />
           </div>
         </ThemeProvider>
       </body>

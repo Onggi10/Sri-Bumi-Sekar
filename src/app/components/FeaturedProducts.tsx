@@ -68,14 +68,30 @@ export default function FeaturedProducts() {
 
       {/* Grid Produk dengan Animasi */}
       <Grid container spacing={2} justifyContent="center">
-        <AnimatePresence>
+        <AnimatePresence mode="popLayout">
           {filteredProducts.map((product) => (
             <Grid item xs={12} sm={6} md={3} key={product.id}>
               <MotionBox
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3 }}
+                layout
+                initial={{
+                  opacity: 0,
+                  scale: 0.8,
+                  y: 20,
+                  boxShadow: "0px 0px 0px rgba(0,0,0,0)",
+                }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  y: 0,
+                  boxShadow: "0px 4px 10px rgba(0,0,0,0.2)",
+                }}
+                exit={{
+                  opacity: 0,
+                  scale: 0.9,
+                  y: -20,
+                  boxShadow: "0px 0px 0px rgba(0,0,0,0)",
+                }}
+                transition={{ duration: 0.4, ease: [0.25, 0.6, 0.3, 1] }}
                 sx={{
                   display: "flex",
                   flexDirection: "column",
@@ -95,7 +111,7 @@ export default function FeaturedProducts() {
                     justifyContent: "center",
                     alignItems: "center",
                     width: "100%",
-                    height: { xs: "200px", md: "300px" }, // Ukuran gambar lebih kecil di mobile
+                    height: { xs: "200px", md: "300px" },
                     borderRadius: "8px",
                     overflow: "hidden",
                   }}
@@ -111,7 +127,7 @@ export default function FeaturedProducts() {
                       height: "100%",
                       maxWidth: "100%",
                       maxHeight: "100%",
-                      aspectRatio: "1 / 1", // Menjaga rasio aspek gambar
+                      aspectRatio: "1 / 1",
                     }}
                   />
                 </Box>

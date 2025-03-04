@@ -10,35 +10,20 @@ export default function Footer() {
         background: "linear-gradient(to bottom, #172B58, #3058A6)",
         color: "white",
         py: 6,
-        mt: 6,
         borderTop: "4px solid #D61F26",
         textAlign: "center",
       }}
     >
-      <Container maxWidth="lg">
-        <Grid
-          container
-          spacing={4}
-          justifyContent="center"
-          textAlign={{ xs: "center", md: "left" }} // 🔥 Pastikan konten di tengah di mobile
-        >
+      <Container maxWidth="lg" sx={{ px : 0 }}>
+        <Grid container spacing={4} justifyContent="center">
           {/* Kolom 1: Tentang Kami */}
-          <Grid
-            item
-            xs={12}
-            md={4}
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: { xs: "center", md: "flex-start" },
-            }}
-          >
-            <Typography variant="h6" gutterBottom fontWeight="bold">
+          <Grid item xs={12} sm={6} md={4}>
+            <Typography variant="h6" fontWeight="bold" gutterBottom>
               Sri Bumi Sekar
             </Typography>
             <Typography
               variant="body2"
-              sx={{ opacity: 0.8, maxWidth: "300px" }}
+              sx={{ opacity: 0.8, maxWidth: "300px", mx: "auto" }}
             >
               Kami menyediakan bahan bangunan berkualitas dengan harga terbaik
               dan layanan profesional.
@@ -46,17 +31,8 @@ export default function Footer() {
           </Grid>
 
           {/* Kolom 2: Layanan Kami */}
-          <Grid
-            item
-            xs={12}
-            md={4}
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: { xs: "center", md: "flex-start" },
-            }}
-          >
-            <Typography variant="h6" gutterBottom fontWeight="bold">
+          <Grid item xs={12} sm={6} md={4}>
+            <Typography variant="h6" fontWeight="bold" gutterBottom>
               Layanan Kami
             </Typography>
             <Box>
@@ -78,17 +54,8 @@ export default function Footer() {
           </Grid>
 
           {/* Kolom 3: Kontak */}
-          <Grid
-            item
-            xs={12}
-            md={4}
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: { xs: "center", md: "flex-start" },
-            }}
-          >
-            <Typography variant="h6" gutterBottom fontWeight="bold">
+          <Grid item xs={12} sm={6} md={4}>
+            <Typography variant="h6" fontWeight="bold" gutterBottom>
               Hubungi Kami
             </Typography>
             <Typography variant="body2" sx={{ opacity: 0.8 }}>
@@ -102,7 +69,13 @@ export default function Footer() {
             </Typography>
 
             {/* Ikon Media Sosial */}
-            <Box mt={2}>
+            <Box
+              mt={2}
+              display="flex"
+              justifyContent="center"
+              gap={1}
+              flexWrap="wrap"
+            >
               {[
                 { icon: <Facebook />, url: "https://facebook.com" },
                 { icon: <Instagram />, url: "https://instagram.com" },
