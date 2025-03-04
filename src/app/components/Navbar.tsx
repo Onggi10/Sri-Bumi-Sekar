@@ -25,7 +25,7 @@ export default function Navbar() {
   };
 
   const navItems = [
-    { text: "Beranda", href: "#hero" },
+    { text: "Beranda", href: "/" },
     { text: "About", href: "#about" },
     { text: "Product", href: "#products" },
     { text: "Testimoni", href: "#testimoni" },
